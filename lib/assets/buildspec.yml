@@ -1,0 +1,21 @@
+version: "0.2"
+
+env:
+  shell: bash
+
+phases:
+  build:
+    commands:
+      - export TRUNK_BUILD_RELEASE=true
+      - trunk build
+      - cd dist
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
+
+cache:
+  paths:
+    - $HOME/.cargo/registry/**/*
+    
